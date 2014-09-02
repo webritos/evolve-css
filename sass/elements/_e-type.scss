@@ -144,29 +144,29 @@ q {
 blockquote {
     @include e-rem-fallback(padding, 25);
     text-indent: -0.41em; /* [1] */
-    quotes: "“" "”";
+    // quotes: "“" "”";
     background-color: $e-blockquote-bg-color;
 
-    p {
+    // p {
 
-        &:before {
-            content: open-quote;
-        }
+    //     &:before {
+    //         content: open-quote;
+    //     }
 
-        &:after {
-            content: no-close-quote;
-        }
+    //     &:after {
+    //         content: no-close-quote;
+    //     }
 
-        &:last-of-type {
-            margin-bottom: 0;
+    //     &:last-of-type {
+    //         margin-bottom: 0;
 
-            &:after {
-                content: close-quote;
-            }
+    //         &:after {
+    //             content: close-quote;
+    //         }
 
-        }
+    //     }
 
-    }
+    // }
 
     q {
         quotes: "‘" "’";
