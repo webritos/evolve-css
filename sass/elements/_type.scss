@@ -1,0 +1,29 @@
+/***********************************************\
+
+   #PROJECT TYPE
+
+\***********************************************/
+
+// Example of a project element. You can use a project global variable
+// ($global-border-radius) that is been considered to be part
+// of ECSS
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+pre {
+    border-radius: $global-border-radius;
+}
+
+blockquote {
+    border-radius: $global-border-radius;
+}    

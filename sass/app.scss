@@ -1,0 +1,210 @@
+/*!*
+ *  evolve CSS documentation
+ *
+ *  @author    Eladio Portela
+ *  @copyright 2014 by the author
+ *  @license   GPL v3
+ *
+*/
+
+
+// *************************************
+//
+//   NAMING CONVENTION
+//
+//   .component-name
+//   .component-name--modifier-name
+//   .component-name__subcomponent-name
+//   .component-name__subcomponent--modifier-name
+//
+//	  The whole guideline of the architecture is at http://www.evolvecss.com
+//	  Please, read it.
+//	  	
+//	  If you are not familiar with it, you can use the -Inbox- section at the
+// 	  end of this file, where you can write your sass/css however you want
+//
+// *************************************
+
+
+// ECSS = evolve CSS
+
+/**
+ * CONTENTS
+ *
+ * VENDORS
+ * compass................Compass modules imports and definitions.
+ *
+ * VENDORS OVERRIDE
+ * Void.................
+ *
+ * SETTINGS
+ * e-global...............ECSS settings.
+ * global.................Project settings.
+ * colors.................Manage your color palette in isolation.
+ *
+ * TOOLS
+ * e-functions............ECSS functions.
+ * e-mixins...............ECSS mixins.
+ * e-aliases..............ECSS aliases.
+ * functions..............Project functions.
+ * mixins.................Project mixins.
+ * aliases................Project aliases.
+ *
+ * GENERIC
+ * normalize.css..........A level playing field.
+ * e-reset................A pared back reset to remove margins.
+ * e-box-sizing...........Better default `box-sizing`.
+ * e-vertical-rhythm......Settings for the vertical rhythm of the site.
+ *
+ * ELEMENTS
+ * e-page.................Page-level styles (HTML element).
+ * e-type.................ECSS abstract misc type styles
+ * e-link.................ECSS abstract hyperlink styles
+ * e-list.................ECSS abstract list styles
+ * e-button...............ECSS abstract button styles
+ *
+ * OBJECTS
+ * e-container............Wrappers and page constraints.
+ * e-box..................Box object.
+ *
+ * COMPONENTS
+ * logo...................Logo styles.
+ * site-nav...............Navigation styles.
+ * sidebar................Sidebar styles
+ * main...................Main container styles.
+ * button.................Button styles.
+ *
+ * STRUCTURES
+ * Void.................
+ *
+ * PAGES
+ * Void.................
+ *
+ * THEMES
+ * Void.................
+ *
+ * TRUMPS
+   e-global...............Many helpers(floats, text-align, etc.).
+ * e-clearfix.............Container with floats elements dosen't collapse
+ * e-spacing..............Spacing helpers.
+ *
+ * INBOX
+ * Styles.................Sass/CSS free style
+ */
+
+
+
+
+ /**
+ * #VENDORS
+ */
+@import "vendors/compass";
+
+
+
+/**
+ * #VENDORS OVERRIDE
+ */
+
+
+
+/**
+ * #SETTINGS
+ */
+@import "settings/e-global";
+@import "settings/global";
+@import "settings/colors";
+
+
+
+/**
+ * #TOOLS
+ */
+@import "tools/e-functions";
+@import "tools/e-mixins";
+@import "tools/e-aliases";
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/aliases";
+
+
+/**
+ * #GENERIC
+ */
+@import "generic/normalize";
+@import "generic/e-reset";
+@import "generic/e-box-sizing";
+@import "generic/e-vertical-rhythm";
+
+
+
+/**
+ * #ELEMENTS
+ */
+@import "elements/e-page";
+@import "elements/e-type";
+@import "elements/type";
+@import "elements/e-link";
+
+$e-enable-list-block--tiny: true;
+@import "elements/e-list";
+
+$e-enable-btn--large: true;
+$e-enable-btn--full: true;
+$e-enable-btn--primary: true;
+@import "elements/e-button";
+
+
+
+/**
+ * #OBJECTS
+ */
+@import "objects/e-container";
+
+$e-enable-box--primary: true;
+$e-enable-box--quiet: true;
+@import "objects/e-box";
+
+
+/**
+ * #COMPONENTS
+ */
+@import "components/button";
+@import "components/logo";
+@import "components/sidebar";
+@import "components/site-nav";
+@import "components/main";
+@import "components/section";
+
+
+
+/**
+ * #STRUCTURES
+ */
+
+
+
+ /**
+ * #PAGES
+ */
+
+
+
+ /**
+ * #THEMES
+ */
+
+
+/**
+ * #TRUMPS
+ */
+@import "trumps/e-clearfix";
+
+$e-enable-margins--large: true; 
+@import "trumps/e-spacing";
+
+
+/**
+ * #INBOX
+ */
+

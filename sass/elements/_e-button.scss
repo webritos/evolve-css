@@ -1,0 +1,290 @@
+/***********************************************\
+
+   #BUTTON
+
+\***********************************************/
+
+// Credits: inuit css, Bootsrap and Foundation
+
+
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$e-btn-padding:         e-halve($e-global-spacing-unit) !default;
+$e-btn-padding--small:  e-halve($e-btn-padding) !default;
+$e-btn-padding--large:  e-double($e-btn-padding) !default;
+$e-btn-border-width:    1px !default;
+$e-btn-border-style:    solid !default;
+$e-btn-radius:          0 !default;
+
+$e-btn-text-color:            $e-white-color;
+$e-btn-text-color--inverse:   $e-black-color;
+$e-btn-bg-color:              $e-white-color;
+$e-btn-border-color:          $e-white-color;
+
+
+$e-enable-btn-tag:        false !default;
+
+$e-enable-btn--small:     false !default;
+$e-enable-btn--large:     false !default;
+$e-enable-btn--full:      false !default;
+$e-enable-btn--pill:      false !default;
+
+$e-enable-btn--primary:   false !default;
+$e-enable-btn--success:   false !default;
+$e-enable-btn--warning:   false !default;
+$e-enable-btn--danger:    false !default;
+
+// Here we set a variable assuming that `box-sizing: border-box;` is not set
+// globally. If it has been previously been defined, the following variable will
+// be overriden and will be set to `true`.
+$e-global-border-box:     false !default;
+
+
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/* ----- Button variants ----- */
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+//
+// $color             Button text color               Default: $button-med ||= rem-calc(12)
+// $bg                Button background color         Default: $button-bg.
+// $border-color      Button Border                   Default null - see button-style mixin
+
+@mixin e-button-variant($color, $bg, $border-color) {
+  color: $color;
+  background-color: $bg;
+  border-color: $border-color;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: darken($bg, 10%);
+        border-color: darken($border-color, 12%);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $bg;
+          border-color: $border-color;
+    }
+  }
+
+  .badge {
+    color: $bg;
+    background-color: $color;
+  }
+}
+
+
+/* ----- Button size ----- */
+//
+// Easily set button padding, font-size, line-height and border-radius
+//
+// $padding-vertical        Button vertical padding         Default: $button-med ||= rem-calc(12)
+// $padding-horizontal      Button horizontal padding       Default: $button-bg.
+// $font-size               Button font-size                Default null - see button-style mixin
+// $line-height             Button line-height              Default null - see button-style mixin
+// $border-radius           Button border-radius            Default null - see button-style mixin
+
+@mixin e-button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+
+
+
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+/*  Base
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+// Style the button tag like the main e-button class
+@if ($e-enable-btn-tag == true) {
+     button {
+      @extend %e-btn;
+    }
+}
+
+/*
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ * 8. Reset unusual Firefox-on-Android default style; see 
+ *    https://github.com/necolas/normalize.css/issues/214
+ */
+.e-btn,
+%e-btn {
+    display: inline-block; /* [1] */
+    vertical-align: middle; /* [2] */
+    font: inherit; /* [3] */
+    text-align: center; /* [4] */
+    border: none; /* [4] */
+    margin:  0; /* [4] */
+    cursor: pointer; /* [5] */
+    overflow: visible; /* [6] */
+    padding: $e-btn-padding - $e-btn-border-width  e-double($e-btn-padding) - $e-btn-border-width; /* [7] */
+    background-image: none; /* [8] */
+  
+    @if($e-btn-border-width != 0) {
+        border: $e-btn-border-width $e-btn-border-style $e-btn-border-color;
+    }
+
+    @if($e-btn-radius != 0) {
+        border-radius: $e-btn-radius;
+    }
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none; /* [4] */
+    }
+    
+    // Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding
+    &::-moz-focus-inner {
+        border:  0;
+        padding: 0;
+    }
+}
+
+
+/* ----- Modifiers ----- */
+
+@if ($e-enable-btn--small == true) {
+  // Small button 
+  .e-btn--small,
+  %e-btn--small {
+      padding: $e-btn-padding--small - $e-btn-border-width  e-double($e-btn-padding--small) - $e-btn-border-width; /* [7] */
+  }
+}  
+
+@if ($e-enable-btn--large == true) {
+  // Large button
+  .e-btn--large,
+  %e-btn--large {
+      padding: $e-btn-padding--large - $e-btn-border-width  e-double($e-btn-padding--large) - $e-btn-border-width; /* [7] */
+  }
+}
+
+@if ($e-enable-btn--full == true) {
+
+  // Full-width button
+  .e-btn--full,
+  %e-btn--full {
+      display: block;
+      width: 100%;
+
+      @if $e-global-border-box == false {
+          // If `box-sizing: border-box;` is not set globally,
+          // remove paddings so that widths and paddings don’t conflict.
+          padding-right: 0;
+          padding-left:  0;
+      }
+  }
+
+  // Vertically space out multiple block buttons
+  .e-btn--full + .e-btn--full {
+    margin-top: 5px;
+  }
+
+  // Specificity overrides
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    &.e-btn--full {
+      width: 100%;
+    }
+  }
+
+}  
+
+
+@if ($e-enable-btn--pill == true) {
+  // Rounded button
+  .e-btn--pill,
+  %e-btn--pill {
+      // Overly-large value to ensure the radius rounds the whole end of the
+      // button
+      border-radius: 100px; 
+  }
+}  
+
+
+
+// Default styled button 
+.e-btn--default,
+%e-btn--default {
+  @include e-button-variant($e-btn-text-color, $e-btn-bg-color, $e-btn-bg-color);
+}
+
+
+@if ($e-enable-btn--primary == true) {
+  // Primary styled button 
+  .e-btn--primary,
+  %e-btn--primary {
+    @include e-button-variant($e-btn-text-color, $e-primary-color, $e-primary-color);
+  }
+}
+
+@if ($e-enable-btn--success == true) {
+  // Success styled button 
+  .e-btn--success,
+  %e-btn--success {
+    @include e-button-variant($e-btn-text-color, $e-success-color, $e-success-color);
+  }
+}
+
+@if ($e-enable-btn--warning == true) {
+  // Warning styled button 
+  .e-btn--warning,
+  %e-btn--warning {
+    @include e-button-variant($e-btn-text-color, $e-warning-color, $e-warning-color);
+  }
+}
+
+@if ($e-enable-btn--danger == true) {
+  // Danger styled button
+  .e-btn--danger,
+  %e-btn--danger {
+    @include e-button-variant($e-btn-text-color, $e-danger-color, $e-danger-color);
+  }
+}
+
+
+/* ----- Subcomponents ----- */
+

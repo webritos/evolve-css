@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>evolve CSS - DRYer Sass and CSS</title>
+  <meta content="Some advices to make your Sass and CSS DRyer" name="description">
+  <meta name="keywords" content="HTML, CSS, Sass, architecture, guideline, framework, front-end, frontend, web development, OOCSS, SMACSS, BEM, Bootstrap, Foundation">
+
+  <!-- Mobile viewport -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <link rel="shortcut icon" href="images/favicon.ico"  type="image/x-icon" />
+  <link rel="stylesheet" href="">
+
+
+  <!-- CSS-->
+  <link rel="stylesheet" href="stylesheets/app.css">
+  <!-- end CSS-->
+
+  <!-- JS-->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54334519-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- end JS-->
+
+</head>
+    
+<body>
+<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+        <header class="sidebar__header">
+           <a class="logo  h1" href="">evolve CSS</a>
+           <div class=""><small>(In construction)</small></div>
+           <div class="">From <a href="http://www.webdesignerbarcelona.com">webritos.com</a> </div>
+        </header> <!-- END header -->
+
+        <a class="githubBtn" href="">View on Github</a>
+
+        <nav class="site-nav">
+          <ul class="site-nav__list">
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/">Overview</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/styleguide.html">Styleguide and Workflow</a> 
+            </li>          
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/e-concept.html">The e- Concept</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/exmaples.html">Examples</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link  active" href="http://evolvecss.com/dry-sass-css.html">DRYer Sass and CSS</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/real-world-example.html">In the Real World</a> </li>
+          </ul>
+        </nav>
+         
+  </aside> <!-- END Sidebar -->
+
+
+  <!-- Main -->
+  <main class="main" role="main">
+   <div class="container">
+
+    <div class="e-box  e-box--primary">
+      <h1 class="e-box__item">DRYer Sass and CSS</h1>  
+    </div>
+
+    <!-- Section --> 
+    <section>  
+      <h2>Getting things DRY</h2>
+      <p>Thanks to CSS pre-processors, we can do a pretty nice job when trying to achieve the <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself" target="blank">DRY principile</a> (Don't Repeat Yourself) in CSS. Using pre-processors features, as extending classes for example, we can make the resulting CSS that goes to production really small (great for performance). But at the same time, if we are not careful and we know what we are doing and how we are coding, we can make pre-processors do the complete opposite, to bload our compiled CSS. See this good and pragmatic <a href="http://thecodingdesigner.com/journal/balancing-ideal-sass-and-ideal-css" target="blank">explanation</a>.</p>
+
+      <p>And besides of that, one of the characteristic of front-end frameworks is that they bring huge CSS file to lets us use their functionalities. So if we are using and/or creating a framework, CSS files can get really big easily.</p>
+
+      <p>Front-end frameworks as Bootstrap and Foundation are designed in a really nice modular way, where if you don’t want to include in the compiled CSS something, you can do it in a really easy way, like removing the import of that module (ECSS works in the same way).</p>
+
+      <pre>
+      /**
+       * #ELEMENTS
+       */  
+      // @import "elements/button";
+      @import "elements/other-element"; </pre>
+        
+      <h4>Foundation arproach</h4>
+      <p>One method that Foundation uses to reduce the CSS bloating if putting conditional inside of their button style mixin.</p>
+
+      <pre>
+      @mixin button-style($bg:$button-bg-color, $radius:false, $disabled:false, $bg-hover:null, $border-color:null) {
+
+      // We control which background styles are used,
+      // these can be removed by setting $bg:false
+      @if $bg {
+        $bg-lightness: lightness($bg);
+        ...
+
+      // We can set $disabled:true to create a disabled transparent button.
+      @if $disabled {
+        cursor: $button-disabled-cursor; 
+        ... </pre>
+
+      <p>So, when you include a mixin, you can set what properties you want to use for that selector/s.</p>
+
+      <pre>
+      // include mixin for styling button
+      .radius { @include button-style($bg:false, $radius:true); } </pre>
+
+      <p>I really like this approach. It not only DRY your CSS, but it allow you to do very personalized things (like no styling the disable status of a type of button). But let’s see another way of doing things.</p>
+
+      <h4>inuit CSS aproach</h4> 
+
+      <p>Another way of trying to DRY your CSS is how inuit CSS (and ECSS) do it. In inuit, you can decide what specific selector/s inside a module you want to export as CSS. The way it works is with flags that you set depending of your needs.</p>
+
+      <pre>
+      // Flags
+      $inuit-enable-btn--small:   false !default;
+      $inuit-enable-btn--large:   false !default;
+
+      // Exporting code
+      @if ($inuit-enable-btn--small == true) {
+          .btn--small {
+            padding: 10px;
+          }
+      }
+      
+      @if ($inuit-enable-btn--small == true) {
+          .btn--big {
+            padding: 30px;
+          }
+      } </pre>
+
+      <p>As you can see, <code>btn--small</code> is a class button modifier. You can make it a placeholder to do a silent extension, but in that case, you will only able to use the class inside Sass, but you won’t be able to use it in the markup (that isn’t a bad practice). So in order to use it both in Sass as in the markup, you need these properties inside a regular class.</p>
+
+
+
+      <p>In order to prevent <code>btn--small</code> to be exported in the compile CSS when you are not using it in a project, you can remove its import, but in that case, you won’t be able to use the  <code>btn--big</code> class neither. But with the inuit CSs approach, you can disable the export of <code>btn--small</code> and enable the export of <code>btn--big.</code></p>
+
+
+    </section> <!-- END Section -->    
+
+    <footer class="page-foot  [ e-box  e-box--quiet ]">
+      <div class="container">
+        <div class="copyright">
+          © 2014. Eladio Portela - <a href="http://www.webdesignerbarcelona.com">webritos.com</a> 
+        </div>
+      </div>
+    </footer>   
+
+
+
+     </div> <!-- END container -->
+  </main> <!-- END Main -->
+
+
+
+
+</body>
+</html>

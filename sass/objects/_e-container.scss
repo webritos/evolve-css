@@ -1,0 +1,15 @@
+/***********************************************\
+
+   #CONTAINER
+
+\***********************************************/
+
+.container { 
+    max-width: 980px;
+    margin-right: auto;
+    margin-left:  auto;
+    padding-right: $e-global-spacing-unit--small;
+    padding-left:  $e-global-spacing-unit--small;
+    overflow: hidden;
+}
+

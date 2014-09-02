@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>evolve CSS - The e- concept</title>
+  <meta content="How to setup your own front-end framework" name="description">
+  <meta name="keywords" content="HTML, CSS, Sass, architecture, guideline, framework, front-end, frontend, web development, OOCSS, SMACSS, BEM, Bootstrap, Foundation">
+
+  <!-- Mobile viewport -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <link rel="shortcut icon" href="images/favicon.ico"  type="image/x-icon" />
+  <link rel="stylesheet" href="">
+
+
+  <!-- CSS-->
+  <link rel="stylesheet" href="stylesheets/app.css">
+  <!-- end CSS-->
+      
+  <!-- JS-->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54334519-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- end JS-->
+
+</head>
+    
+<body>
+<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+        <header class="sidebar__header">
+           <a class="logo  h1" href="">evolve CSS</a>
+           <div class=""><small>(In construction)</small></div>
+           <div class="">From <a href="http://www.webdesignerbarcelona.com">webritos.com</a> </div>
+        </header> <!-- END header -->
+
+        <a class="githubBtn" href="">View on Github</a>
+
+        <nav class="site-nav">
+          <ul class="site-nav__list">
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/">Overview</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/styleguide.html">Styleguide and Workflow</a> 
+            </li>          
+            <li class="site-nav__item"> <a class="site-nav__link  active" href="http://evolvecss.com/e-concept.html">The e- Concept</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/exmaples.html">Examples</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/dry-sass-css.html">DRYer Sass and CSS</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/real-world-example.html">In the Real World</a> </li>
+          </ul>
+        </nav>
+         
+  </aside> <!-- END Sidebar -->
+
+
+  <!-- Main -->
+  <main class="main" role="main">
+   <div class="container">
+
+    <div class="e-box  e-box--primary">
+      <h1 class="e-box__item">The e- Concept</h1>  
+    </div>
+    
+    <!-- Section --> 
+    <section>  
+      <h2>Making our own framework</h2>
+      <p>Making our own framework for HTML/CSS is not so weird or hard, really. I think that some of the reasons why we don’t do it are:</p>
+      <ol>
+        <li>There are vendors’ solutions tested and with great support.</li>
+        <li>We think that we won’t use in another project the stuff we are making now.</li>
+        <li>We don’t want to stop and spend time organization this stuff to use it later (we can always copy/paste).</li>
+        <li>We don’t have a workflow that allows us to do it in an organized and easy way.</li>
+      </ol>
+
+      <p>These are good reasons. Now, let’s break them.</p>
+      
+      <ol>
+        <li>
+            <p>Of course there are better solutions out there. The makers of these solutions worked very hard for long periods of time to create these tools. But I’m not saying that we should stop using them, I’m saying that we can choose and use what we like and need from these solutions in an organized and systematic way (not just copy/paste something that just "works"). One fundamental step in becoming a good developer is to see others people’s code, and this is a great way to do it. </p>
+
+            <p>Many of the vendors’ solutions are made in a modular way where you take just what you want. For example, let’s say you like the Bootsrap grid system. You don’t need to have the whole framework to use the grid, just insert its modules in your project. But after using them a few times, you might find yourself missing some features and overriding some parts of the grid system. So, why not modifying them permanently (giving them credit) and made them part of ECSS. So, next time you will have an e-grid system that feeds your needs.</p>
+        </li>
+          <li>
+            <p>We might will use that code later, you know it.</p>
+          </li>
+          <li>
+            <p>I know it’s hard to stop, especially when we have too much work, but we can take benefits from doing it. We just need to find an easy and fast way to do it.</p>
+          </li>
+          <li>
+            <p>So, lets make that wotkflow!</p>
+          </li>
+      </ol> 
+
+      <h4>Heading</h4>
+
+      <p>You may find yourself saying</p>
+
+      <blockquote>
+        "I usually reuse the code I do, without any methodology, so I don't see the purpose of making any utilities or framework."
+      </blockquote>
+
+      <p>You will be amazed by the many things you don’t re-utilize that <strong>you could</strong> if you just follow a methodology. It’s like when we set the goal of going to the gym every day at a specific hour, let’s say 6 a.m. After a while, you find yourself going more to the gym than when you just go at any random hour. This is because you are following a pattern.</p>
+
+      <p>About reusing the code you write (and using the code you see) in HTML/CSS, the e- concept is my suggestion. Find patterns in your code and put them in a place that tells you they are patterns.</p>
+  
+      <h4>Example</h4>
+
+      <pre>
+      // Project x, somewhere in the code...
+      .a-big-button {
+          // code
+          display: block;
+          width: 100%;
+          // code
+          // code
+          // code
+      }
+
+      .some-other-button {
+          // code
+          // code
+          display: block;
+          width: 100%;
+          // code    
+      } </pre>
+
+
+
+      <p>Becasue you find yourself repeating <code>width: 100%;</code> and <code>display: block;</code>  many times, you decide to create a <code>btn--full</code> modifier that you can place in the markup or extend in Sass. That is clever. Then you finish the module or the project, and forget about the <code>btn--full</code> modifier. If you need something like that in the future, you already know how to do it, or you can copy/paste it, or you can use a framework with something similar. Right? Absolutely right, but another option is to set the <code>btn--full</code> modifier in a place you could have easy access in the future. </p>
+
+      <pre>
+        |– elements/ 
+        |   |– _button.scss
+           
+                .e-btn--full {
+                   width: 100%;
+                   // code     
+                 } </pre>
+
+      <p>You know buttons are going to be needed in your next project, so bring the button.scss element and the <code>e-btn--full</code> modifier will be ready to be used. You know this class is part of ECSS because of the e- prefix. You treat e- definitions differently than projects definitions, since you don’t modify them directly (more of that below) therefore you will know, or the rest of your team will know, that an element is not broken.</p>
+
+        <h4 id="modifying-e-element">Modifying an e- element in a project</h4>
+
+        <p>I suggest one of these two approaches for this.</p>
+
+        <p>1- A file</p>
+
+        <p>Create a file with the a different prefix name (let’s say eo-) and override the defaults (the override variables file of Bootsrap is a good example).</p>
+
+        <pre>
+        |– settings/ 
+        |   |– _eo-global.scss          # Here you override the defaults of e-global    
+        |   |– _e-global.scss           # evolve CSS global settings
+        |   |– _global.scss             # Your project globals      
+        | </pre>
+
+        <p>Take in count that you need to import before the file that overrides.</p>
+
+        <p>2- Do it in the app.scss (the file where you import all the partials)</p>
+
+        <p>This technique I saw it in inuit css and I liked it very much. The idea is that you set the override just before importing the file</p>
+
+        <pre>       
+        /**
+         * #SETTINGS
+         */
+        @import "settings/etc"; 
+
+        $e-font-size:         14px;
+        $e-line-height:       21px; 
+        @import "settings/e-global";
+        @import "settings/etc"; </pre>
+
+        <p>You leave a line after the previous import (for legibility), then override the variables of the import you want.</p>
+
+        <p>What I like of this approach is that you can easily see in one file what is difference with the way you are used to work (e.g.: you are using a base font-size of 14px this time, not 16px as you are used to it).</p>
+
+        <h4>Combining ECSS with other frameworks</h4>
+
+        <p>Let’s say that you want to use ECSS, and that you want to use Foundation grid system, but you don’t want to use anything else from it. So you include Foundation grid system in the vendors’ module.</p>
+
+         <pre>
+        /**
+         * #VENDORS
+         */
+        --- Import the main file ---
+        @import "vendors/foundation/scss/app";
+
+        --- And then, comment in that file the @import "foundation";(which include all the components), 
+        and uncomment the grid import ---
+        // @import "foundation";
+        @import
+        "foundation/components/grid";
+        //   "foundation/components/alert-boxes",
+        //    etc... </pre>
+
+        <p>Or, use the exclude system of Foundation</p>
+        
+        <pre>
+        /**
+         * #VENDORS
+         */
+         --- Set to false the global include variable in Foundation -settings.scss and set 
+        to true the grid include variable ---
+        $include-html-classes: false;
+        ...
+        $include-html-grid-classes:true; </pre>
+
+        <p>This approach will import also all the mixins of the other foundation components (which you can use of course), without printing any CSS. The reason of this is because Foundation components mixins are in the same file where the CSS printing is (as difference to Bootstrap, that separates components mixins in their own file). So, if you don’t include the component, you won’t have its mixins.</p>
+          
+        <h4>Making your own grid system</h4>
+        
+        <p>If you want to have your own grid system, just make it an ECSS element.</p>
+
+        <pre>
+        |– elements/ 
+        |   |– _e-grid.scss           # Your grid system in your framework    
+        |   ...                       # Etc…        
+        | </pre> 
+
+
+        <h4>Combining</h4>
+        <p>Let’s say that you want to use ECSS and Bootstrap buttons. You want to use some features as the  <code>.btn-success</code> Bootstrap class, and don’t want to make it yourself. So, what you do is to stop importing the <code>e-button</code> element and import Bootstrap button component.</p>
+
+        <pre>
+        /**
+         * #VENDORS
+         */
+         @import "vendors/bootstrap/bootsrap.scss"; 
+         
+
+        /**
+         * #ELEMENTS
+         */  
+        // @import "elements/button";
+        @import "elements/other-element"; </pre>
+
+
+        <p>But wait. You don’t have to remove the ECSS button element if you don’t want to. Let’s say that you want to use some modifiers that you have in e-button.scss, as you use the <code>.btn-success</code> Bootstrap class. You can mix them. There will be not conflict between the button classes because of the e- prefix. Then, you can do something like this.</p>
+
+        <pre><code>&lt;button class=&quot;btn  btn-success  e-btn--full&quot;&gt;&lt;/button&gt;</code></pre>
+
+        <p>Bootstrap already has a full button modifier, so you don’t need to do something like this (unless you prefer to use your full button modifier instead of Bootstrap's). Anyway, it’s just an example so you can see the possibilities that this approach brings.</p>
+
+        <p>In the same way, you can extend Bootrap classes and use its mixins inside your projects code (don’t do it inside ECSS code because then you make it dependent to Bootstrap). As an example, you can extend Bootstrap full button modifier.</p>
+
+        <pre>
+        |– component/ 
+        |   |– _button.scss
+                |
+                |- .btn--full {
+                     @extend .btn-block;
+                     //more code     
+                   } </pre>
+
+        <p>But instead of using this approach, with the goal of reducing the mix of your code with Bootstrap' code, I suggest that you take some minutes to read the component in question (in this case the Bootstrap button component), understand how it works, and take just what you need and put it in your project button component. And later on, if you find yourself using this code in many scenarios, make it part of ECSS. </p>
+        
+        <h4>Passing code from project to ECSS</h4>
+
+        <p>If you believe that something could be passed from your project to ECSS, you can do it in many ways. This is just one idea. For files, you can have beta files, and use an especial prefix for them, like "eb-" for example. And after you see that this work fits you well in another projects, you can make it part of the defaults of ECSS. For code, use a comment tag as TO-EVOLVE. Try many approaches to see which fits your need. If you want to be really serious with ECSS, you can have it in its own private or public project, as a github project.</p>
+        
+
+        <h4>Final thoungts</h4>
+
+        <p>I hope you like this easy methodology. Remember, ECSS is not some outsiders weird code you don’t know and have never seen, it’s just your utilities, the code you like and use in an organized way.</p>
+
+
+    </section> <!-- END Section --> 
+
+
+    <footer class="page-foot  [ e-box  e-box--quiet ]">
+      <div class="container">
+        <div class="copyright">
+          © 2014. Eladio Portela - <a href="http://www.webdesignerbarcelona.com">webritos.com</a> 
+        </div>
+      </div>
+    </footer>   
+
+
+
+     </div> <!-- END container -->
+  </main> <!-- END Main -->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+/***********************************************\
+
+   #LISTS
+
+\***********************************************/
+
+// Credits: inuit css
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$e-list-block-padding:          $e-global-spacing-unit !default;
+$e-list-block-padding--tiny:      e-quarter($e-list-block-padding) !default;
+$e-list-block-padding--small:       e-halve($e-list-block-padding) !default;
+$e-list-block-padding--large:      e-double($e-list-block-padding) !default;
+$e-list-block-padding--huge:    e-quadruple($e-list-block-padding) !default;
+
+$e-enable-list-block--tiny:     false !default;
+$e-enable-list-block--small:    false !default;
+$e-enable-list-block--large:    false !default;
+$e-enable-list-block--huge:     false !default;
+
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+/*  Generic
+-------------------------------------*/
+
+// Remove extra vertical spacing when nesting lists.
+
+li {
+
+    > ul,
+    > ol {
+        margin-bottom: 0;
+    }
+
+}
+
+
+/*  Base
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+
+/* ----- Modifiers ----- */
+
+/* ----- Subcomponents ----- */
+
+
+
+
+/*  List-bare
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+//  The list-bare object simply removes any indents and bullet points from lists.
+.e-list-bare,
+%e-list-bare {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* ----- Modifiers ----- */
+
+/* ----- Subcomponents ----- */
+
+
+
+
+/*  List-block
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+// The list-block object creates blocky list items out of a `ul` or `ol`.
+.e-list-block,
+%e-list-block {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* ----- Modifiers ----- */
+
+@if ($e-enable-list-block--tiny == true) {
+    //Tiny list-blocks.
+    .e-list-block--tiny,
+    %e-list-block--tiny {
+
+        > .e-list-block__item,
+        > %e-list-block__item {
+            padding: $e-list-block-padding--tiny;
+        }
+
+    }
+}
+
+@if ($e-enable-list-block--small == true) {
+    // Small list-blocks.
+    .e-list-block--small,
+    %e-list-block--small {
+
+        > .e-list-block__item,
+        > %e-list-block__item {
+            padding: $e-list-block-padding--small;
+        }
+
+    }
+}
+
+@if ($e-enable-list-block--large == true) {
+    // Large list-blocks.
+    .e-list-block--large,
+    %e-list-block--large {
+
+        > .e-list-block__item,
+        > %e-list-block__item {
+            padding: $e-list-block-padding--large;
+        }
+
+    }
+}
+
+@if ($e-enable-list-block--huge == true) {
+    // Huge list-blocks.
+    .e-list-block--huge,
+    %e-list-block--huge {
+
+        > .e-list-block__item,
+        > %e-list-block__item {
+            padding: $e-list-block-padding--huge;
+        }
+
+    }
+}
+
+
+
+/* ----- Subcomponents ----- */
+
+.e-list-block__item,
+%e-list-block__item {
+    padding: $e-list-block-padding;
+}
+
+
+
+/*  List-inline
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+// The list-inline object simply displays a list of items in one line.
+.e-list-inline,
+%e-list-inline {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        display: inline-block;
+    }
+}
+
+
+/* ----- Modifiers ----- */
+
+/* ----- Subcomponents ----- */

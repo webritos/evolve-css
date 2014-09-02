@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>
+            http://evolvecss.com/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://evolvecss.com/styleguide.html
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://evolvecss.com/e-concept.html
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://evolvecss.com/exmaples.html
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://evolvecss.com/dry-sass-css.html
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://evolvecss.com/real-world-example.html
+        </loc>
+    </url>
+</urlset>

@@ -1,0 +1,85 @@
+// *********************************************
+//
+//   #BUTTON - Extend ELEMENT - _button.scss.
+//
+// *********************************************
+
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+/*  Base
+-------------------------------------*/
+
+/* ----- Base button ----- */
+
+// adding some properties of the evolve .e-btn class
+.btn {
+    @extend %e-btn;
+
+    @include e-attention() {
+        background-color: darken($e-btn-bg-color, 10%);
+            border-color: darken($e-btn-bg-color, 10%);
+    }
+
+}
+
+
+
+/* ----- Modifiers ----- */
+
+
+// Info button 
+.btn--info {
+  @include e-button-variant($e-btn-text-color, $e-info-color, $e-info-color);
+}
+
+
+.btn--secondary {
+    background: none;
+    color: $e-btn-text-color;
+
+    @include e-attention() {
+        background: none;
+        color: darken($e-btn-text-color, 10%);
+    }
+
+}
+
+
+.btn--positive {
+    @include e-attention(self) {
+        // background-color: $color-positive;
+        //     border-color: $color-positive;
+    }
+
+}
+
+
+
+/* ----- Subcomponents ----- */
+
+
+
+/* ----- Semantic aproach ----- */
+
+// exmple of a semantic class, where you can combine many styles in the CSS,
+//if you dont wnat to do it in the markup. This is the same as
+// <a class="e-btn  e-btn--full  e-btn--primary" href="">View on Github</a>
+.githubBtn {
+    @extend %e-btn;
+    @extend %e-btn--full;
+    @extend %e-btn--primary;
+    margin-bottom:  $e-global-spacing-unit;
+    margin-bottom:  ($e-global-spacing-unit / $e-base-font-size) * 1rem;
+}
+

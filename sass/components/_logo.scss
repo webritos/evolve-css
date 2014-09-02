@@ -1,0 +1,91 @@
+/***********************************************\
+
+   #LOGO
+
+\***********************************************/
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+/*  Base
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+.logo[href] {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+/* ----- Modifiers ----- */
+
+
+/* ----- Subcomponents ----- */
+
+
+
+/*  Increasing logo letter
+-------------------------------------*/
+
+/* ----- Default ----- */
+
+/*
+ * 1. Because every letter has a diferent size and line-height, they would be
+ * bigger letters with bigger line-height than the rest of the box content. 
+ * So we eliminate the line-height.
+ * 
+ */
+
+.logo-letter {
+    letter-spacing: -0.2em;
+    line-height: 0; /* [1] */
+
+    &:last-child {
+        @include e-rem-fallback(margin-right, 8px);
+    }
+}
+
+
+
+/* ----- Modifiers ----- */
+
+
+.logo-letter--1 {
+    @include e-font-size(31px, none);
+}
+
+.logo-letter--2 {
+    @include e-font-size(38px, none);
+}
+
+.logo-letter--3 {
+    @include e-font-size(41px, none);
+}
+
+.logo-letter--4 {
+    @include e-font-size(45px, none);
+}
+
+.logo-letter--5 {
+    @include e-font-size(49px, none);
+}
+
+.logo-letter--6 {
+    @include e-font-size(52px, none);
+}
+
+
+
+/* ----- Subcomponents ----- */

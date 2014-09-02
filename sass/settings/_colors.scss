@@ -1,0 +1,108 @@
+///*------------------------------------*\
+//    #COLORS
+//\*------------------------------------*/
+
+// variableType-context-element-attribute
+
+
+// -------------------------------------
+//   Palette
+// -------------------------------------
+
+//Grayscale
+$gray-darker:             lighten(#000, 13.5%) !default; // #222
+$gray-dark:               lighten(#000, 20%) !default;   // #333
+$gray:                    lighten(#000, 33.5%) !default; // #555
+$gray-light:              lighten(#000, 46.7%) !default; // #777
+$gray-lighter:            lighten(#000, 93.5%) !default; // #eee
+
+$white:					  #fff;
+$black:					  #000;
+$black-light-x1:		  #3e3e3e;
+
+$blue:					  #14385e;
+$red:					  #e43030;
+$orange:				  #db7500;
+$orange-dark-x1:		  #c98730;
+$orange-light-x2:		  #ffbe73;
+$gray-light-x3:		      #e6e6e6;
+$gray-light-x4:		  	  #e8e8e8;
+$gray-light-x5:		  	  #ececec;
+$gray-light-x6:		      #f5f5f5;
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// Generic
+$e-primary-color:				$orange;
+$e-secondary-color:				$orange;
+$e-postive-color:				$orange;
+$e-negative-color:				$white;
+$e-highlight-color:				$white;
+$e-tint-color:					$white;
+$e-success-color:				$white;
+$e-warning-color:				$white;
+$e-danger-color:				$white;
+$e-info-color:					$white;
+$e-loud-color:					$white;
+$e-quiet-color:					$gray-light-x5;
+$e-white-color:					$white;
+$e-black-color:					$black;
+
+
+
+
+// Site
+$e-site-text:				$black-light-x1;
+$e-site-bg:					$white;
+
+// Site nav
+$e-nav-text:				$black-light-x1;
+$e-nav-bg:					$white;		
+
+// Site head
+$e-head-text:				$black-light-x1;
+$e-head-bg:					$white;
+$e-head-border:				$white;
+
+// Site foot
+$e-foot-text:				$black-light-x1;
+$e-foot-bg:					$white;
+$e-foot-border:				$white;
+
+// Links
+$e-link:					$orange;
+
+// Buttons
+// $e-btn-text:				$white;
+// $e-btn-bg:					$orange;
+// $e-btn-gradientFrom:		$orange;
+// $e-btn-gradientUntil:		$orange-light-x2;
+// $e-btn-border:				$orange-dark-x1;
+
+// Headings
+$e-heading:					$black-light-x1;
+$e-heading-sub:				$blue;
+
+// Code
+$e-code-text:				$black-light-x1;
+$e-code-bg:					$gray-light-x6;
+
+
+// -------------------------------------
+//   Components
+// -------------------------------------
+
+
+
+
+
+
+
+
+
+// -------------------------------------
+//   Structures
+// -------------------------------------

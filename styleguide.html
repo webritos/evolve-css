@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>evolve CSS - A modular front-end Styleguide and Workflow</title>
+  <meta content="A modular front-end styleguide and worflow" name="description">
+  <meta name="keywords" content="HTML, CSS, Sass, architecture, guideline, workflow, front-end, frontend, web development, OOCSS, SMACSS, BEM, Bootstrap, Foundation">
+
+  <!-- Mobile viewport -->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <link rel="shortcut icon" href="images/favicon.ico"  type="image/x-icon" />
+  <link rel="stylesheet" href="">
+
+
+  <!-- CSS-->
+  <link rel="stylesheet" href="stylesheets/app.css">
+  <!-- end CSS-->
+      
+  <!-- JS-->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54334519-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- end JS-->
+
+</head>
+    
+<body>
+<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+        <header class="sidebar__header">
+           <a class="logo  h1" href="">evolve CSS</a>
+           <div class=""><small>(In construction)</small></div>
+           <div class="">From <a href="http://www.webdesignerbarcelona.com">webritos.com</a> </div>
+        </header> <!-- END header -->
+
+        <a class="githubBtn" href="">View on Github</a>
+
+        <nav class="site-nav">
+          <ul class="site-nav__list">
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/">Overview</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link  active" href="http://evolvecss.com/styleguide.html">Styleguide and Workflow</a> 
+              <ul class="site-nav__sub-list">
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#getting-started">Getting Started</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#e-concept-intro">A small intro to the e- concept</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#file-structure">File structure</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#naming-conventions">Naming conventions</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#standars">Standars</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#coments">Comments</a> </li>
+                <li class="site-nav__sub-item"> <a class="site-nav__sub-link" href="#your-documentation">Your own Documentation</a> </li>
+              </ul>
+            </li>          
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/e-concept.html">The e- Concept</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/exmaples.html">Examples</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/dry-sass-css.html">DRYer Sass and CSS</a> </li>
+            <li class="site-nav__item"> <a class="site-nav__link" href="http://evolvecss.com/real-world-example.html">In the Real World</a> </li>
+          </ul>
+        </nav>
+         
+  </aside> <!-- END Sidebar -->
+
+
+  <!-- Main -->
+  <main class="main" role="main">
+   <div class="container">
+
+    <div class="e-box  e-box--primary">
+      <h1 class="e-box__item">A modular Front-end Styleguide and Workflow</h1>  
+    </div>
+
+      <!-- Section --> 
+      <section id="e-concept-intro">  
+        <h2>Basics</h2>
+
+        <h4>A small intro to the e- concept</h4>
+
+        <p>ECSS could easily become a framework. It brings defined elements that can be used from the begging of the setup (as a font-size mixin for example). But the idea behind it is not that you stay away from that definitions and don’t touch them, neither that you only touch a override of the settings variables, as the Bootstrap/Foundation approach. The idea is that you create your own framework that suits your needs. </p>
+
+        <p>Usually, developers stay away from the framework that they are using because they bring so much stuff that we don’t know how everything is related, and we are afraid that if we touch something we could break something else. And of course, we could study it, but that takes time and maybe we won’t use it again in a long period of time, or we just feel that we don’t need to.</p> 
+
+        <p>In ECSS, the variables, mixins, files and rest elements that are defined to be part of its defaults, begin with the prefix "e-". Feel free to change these values, and create more if you wish. My suggestion is that when you see some pattern in you code, while going from one project to the other, set those patterns as part of ECSS. Just put it in its place (if is a mixins in the e-mixin.scss file, for example) and add them the e- prefix.</p>
+
+        <p>So, now you know that if you see a file called "_e-mixins.scss", is the partial where the framework mixins lies. And if you see a "_mixins.scss" file (no "e-" prefix) is the project mixins holder. Keep working in your daily busy life, using ECSS in many projects, and when you find a pattern (let’s say you see yourself defining a mixin often, so create a e- version for that mixin and next time you will have it there and you will gain speed (specially because you don’t have to remember it in the middle of some task related). </p>
+
+        <p>If you are not interested in creating and maintaining a framework, you don't have to. Just take what you like from ECSS and leave what you don’t (as I did with the projects mentioned previously). If you like to know more about the "e-" idea, there is<a href="http://evolvecss.com/e-concept.html" target="blank"> a section</a> that explains in more detail, otherwise just continue reading.</p>
+        
+        <p>Due to the concept of ECSS, you don’t need to wait for updates (but there’ll be more versions).</p>
+
+      </section> <!-- END Section -->
+
+      <!-- Section --> 
+      <section id="file-structure">  
+        <h2>File structure</h2>
+
+       <p>This is the way I’m organizing my files. You can change however you want, but if you decide to follow this approach, there are some things (described below) to be considered. Many of these files are just examples, so don’t take them literally. Right now at github, only the files with an * have content.</p>
+
+       <p>One of the aspects that you will see is that the e- files are not in a separate folder, the project files and ECSS files lie in the same place. The idea of this is that ECSS’s code and the projects’ code are more related, and that you can easily work in both of them. This is because ECSS is not some outsiders weird code you don’t know and have never seen, it’s just your utilities, the code you like and use in an organized way.</p>
+
+       <pre>
+        sass/ 
+        |
+        |– vendors/ 
+        |   |– .../_bootstrap.scss        # Bootstrap styles 
+        |   ...                           # Etc… 
+        | 
+        |– settings/ 
+        |   |– _e-global.scss             # evolve CSS global settings  *    
+        |   |– _global.scss               # Project global settings  * 
+        |   |– _colors.scss               # Color palette and color globals  *
+        |
+        |– tools/     
+        |   |– _e-functions.scss          # evolve CSS functions  *
+        |   |– _e-mixins.scss             # evolve CSS mixins  *
+        |   |– _e-aliases.scss            # evolve CSS aliases  *
+        |   |– _functions.scss            # Project functions 
+        |   |– _mixins.scss               # Project mixins 
+        |   |– _aliases.scss              # Project aliases 
+        |
+        |– base/ 
+        |   |– _normalize.scss            # Reset/normalize  * 
+        |   |– _e-box-sizing.scss         # Better default `box-sizing`  *
+        |   |– _e-vertical-rhythm.scss    # Set related distances betwen elements  *
+        |
+        |– elements/ 
+        |   |– _e-page.scss               # Set the HTML and body styles
+        |   |– _e-type.scss               # Manage typographic elements 
+        |   |– _e-link.scss               # Set links base styles
+        |   |– _e-list.scss               # Ordered and unordered lists
+        |   |– _e-form.scss               # Styles for all form elements
+        |   |– _e-table.scss              # Styles for all table elements                   
+        |   |– _e-image.scss              # Set the styles for images 
+        |   |– _e-quote.scss              # Set the styles for quotes 
+        |   |– _e-button.scss             # Set the styles for buttons  * 
+        |   ...                           # Etc…                    
+        |
+        |– objects/ 
+        |   |– _e-container.scss          # Main container class settings  * 
+        |   |– _e-grid.scss               # Grid system 
+        |   |– _e-media.scss              # Media object  *
+        |   |– _e-box.scss                # Container to box elements  *
+        |   ...                           # Etc…     
+        |
+        |– components/
+        |   |– _page-head.scss            # Styles for the page header 
+        |   |– _page-foot.scss            # Styles for the page footer            
+        |   |– _button.scss               # Extension of the button element 
+        |   |– _carousel.scss             # Styles for a carousel component 
+        |   |– _tab.scss                  # Extension of the media object  
+        |   |– _nav.scss                  # Extension of the nav element 
+        |   ...                           # Etc…        
+        |
+        |– structures/ 
+        |   |– _masthead.scss             # Style for the masthead of the home page
+        |   |– _user-carousel.scss        # Styles for the user carousel
+        |   ...                           # Etc…       
+        |    
+        |– pages/ 
+        |   |– home.scss                  # Style that you want only in the home page
+        |   |– _contact.scss              # Style that you want only in the contact page
+        |   ...                           # Etc…       
+        |
+        |– themes/ 
+        |   |– _christmas.scss            # Christmas theme 
+        |   |– _admin.scss                # Admin theme 
+        |   ...                           # Etc… 
+        | 
+        |– trumps/ 
+        |   |– _clearfix.scss             # Clearfix  *
+        |   |– _spacing.scss              # Spacing helper classes  * 
+        |   |– _visibility.scss           # Visibility helper classes  *  
+        |   ...                           # Etc… 
+        | 
+        `– app.scss                       # primary Sass file  *
+        `– ie.scss                        # Internet Explorer exclusive styles
+        `– print.scss                     # Print styling </pre>
+
+      <p>As you see, is a modular approach. The modules must be included in this order, but the order of the files inside them doesn’t matter. The explanation of each section below.</p>
+
+      <h4 id="vendors">Vendors</h4>
+      <p>Put your vendors’ assets here. There is an override folder inside where you can override anything without touch in the vendors’ files.</p>
+      
+      <h4 id="settings">Settings</h4>
+      <p>Is where your global variables are set. Base font-size, global colors, media-queries breakpoints, etc. This way we reduce the amount of <a href="#magicNumbers">magic numbers</a> and we reduce the amount of different values for an aspect. It's common to end with projects with 10 small variations of the same color. Anyway, you could define and use local variables inside any module.</p> 
+
+      <h4 id="tools">Tools</h4> 
+      <p>The area for the functions, mixins and aliases. ECSS’s defaults are in _e-functions.scss, _e-mixins.scss and _e-aliases.scss. You can put the ones of your project in the respective file without the "e-" prefix.</p>  
+
+      <h4 id="base">Generic</h4>
+      <p>The idea of the generic module is to put elements that set global-base styles that can be a specific implementation (like _box-sizing.scss, that set the " box-sizing: border-box;" for all elements) as a global set of definitions (as resets or normalize). If you want to define something as the vertical rhythm of the site (a definition that is a base statement and affects different HTML elements that are not related, the generic module is the place to go. (e.g.: forms are group of related elements, so they go in the elements module).</p>
+
+      <pre>
+        // generic
+        html {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+        }
+        * {
+            &,
+            &:before,
+            &:after {
+                -webkit-box-sizing: inherit;
+                   -moz-box-sizing: inherit;
+                        box-sizing: inherit;
+                }
+        }</pre>
+
+      <h4 id="elements">Elements</h4>
+      <p>The Elements module is where the base definition of HTML elements, or related group of elements, are set (list, buttons, etc). Each element has its file (or group of elements related). In methodologies as SMACSS, there is a base module where you only style tags and don’t style classes, so you end with the basic/default look of elements and leave the classes for the components module.</p>
+
+      <p>In ECSS, tags and classes can my styled in the elements module. This idea emerges after my struggle deciding what to do with some elements after seeing other architecture methodologies. In some approaches, buttons are styled first in a "base" module, then in an "object" module and finally in the "components" module. The idea behind this is that in "base", things as "cursor: pointer;" are defined, and then in "objects", they make some default button, as some default modifiers (like .btn--full), and finally they style the button in "components". For me, this approach is too disperse.</p>
+
+      <p>I like the idea of "extending" an object, so in ECSS you define have the elements module for setting the defaults of buttons, add some modifiers if you wish, and then extend the button element with some UI styles (and more modifiers if you wish). You will understand better after reading the objects and components descriptions below.</p>
+
+      <pre>
+      // base of the button element. The tag "button" dosen't has to be 
+      // included if you dont want, the class is the real protagonist.
+      button, .btn {
+        display: inline-block; 
+        vertical-align: middle; 
+        font: inherit; 
+        text-align: center; 
+        etc...
+      } </pre>
+
+      <p>We can see that those CSS statements can be used by the button tag as by its emulation with the .btn class. This is why, for me, the element module is similar to an object that can be extended by a component.</p>
+
+      <h4 id="objects">Objects</h4>
+      <p>An object is a small structure, where you can <strong>create something that is not an HTML regular group of elements</strong> (like a .container class) <strong>by combining elements together </strong>(like the "quarks->atoms" approach of atomic design). The best example I can think of is combing elements in a reusable and adaptable small structure is the <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/" target="blank">media object</a>, the golden child of the OOCSS. Below, a container and a box object.</p>
+
+      <pre>
+      // object
+      .container { 
+        width: 980px;
+        margin-right: auto;
+        margin-left:  auto;
+      }
+
+      // object
+      .box { 
+        display: block; 
+        padding: $someValue;
+      } </pre>
+
+
+      <h4 id="components">Components</h4>
+      <p>Is where you will define the UI of the elements, and is where you will spend the most of your time.</p>
+
+      <pre>
+      // component
+      .btn {
+        color: $e-btn-text-color;
+        font-weight: bold;
+        font-size: 17px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $e-btn-border-color;
+        border-radius: 2px;
+        background-color: $e-btn-bg-color
+        box-shadow: 0px 1px 2px 0px rgba(22, 20, 18, 0.196);      
+      } </pre>
+
+      <p>Components can extend from the element module as from the object module, and can also define its own structure or element that is not defined anywhere else. Here, you can set modifiers and sub components, and override anything from their parents.</p>
+
+      <h4>---- Pause ----</h4>
+      <p>How you went back there with the generic/elements/objects specifications? Some tips to have it clearer:</p>
+
+      <ul class="list-x">
+        <li>What you define in "generic" is not the style of specific HTML elements (or group of elements related together). What you have in "elements" are styles of diverse HTML elements which are not related together (as a reset). You can think of this as “not specific base” module. The Elements will be then a specific base module.</li>
+        <li>Components can extend from elements as from objects. You can use the same class in a component that you use in its parent (element or object). </li>
+        <li>You only use tag elements in "generic" and in "elements". You don’t use them in "objects" or "components", here you only use classes.</li>
+      </ul>
+
+
+      <h4 id="structures">Structures</h4>
+      <p>A structure is just a component that it has grow too big to be really modular; that means that its connected to others elements/objects (e.g.: is inside of some parent container or group of containers). Why an area for this type of component if there is a component area? The idea of a component is that is modular. If you move it to another project (with its abstraction if it has one, an element or an object) it will look and behave in the same way. But if the component doesn’t do this, it can become hard to move components because you won’t know if it will work or not.</p>
+
+
+      <p>How to know when a component becomes a structure? Don't try to anticipate this, just work as usual in the components module, and when you spot some component that is not modular, move it to structures. I took the idea from <a href="http://mvcss.github.io/structures/#portability" target="blank">MVCSS</a>, where they explain it like this:</p>
+
+      <blockquote>
+        "In the end, limiting scope and minimizing dependencies both affect portability, which is usually our biggest concern when classifying modules. If you can easily tweak a few lines of CSS inside a module and use it between projects, that means it’s reasonably portable, and you have solid grounds for classifying it as a Component. On the other hand, if try to port a module and find yourself rewriting a significant amount of code, then the module is likely better classified as a Structure."
+      </blockquote>
+
+      <h4 id="pages">Pages</h4>
+      <p>If for some reason you don’t find a correct place for an exclusive styke, that only happen in a page and it won’t repeat, use this area. Anyway, It’s better to use the elements/objects/components approach, and use some helpers classes in the markup if you need to twist something so small it doesn’t deserve the time that takes to establish its place and name it.</p>
+
+      <h4 id="themes">Themes</h4>
+      <p>Are group of styles that change drastically the look of the site. It can be a Christmas theme for example, or a "crazy offer day" theme. Usually, you don’t use them and the folder is empty.</p>
+
+      <h4 id="trumps">Trumps</h4>
+      <p>Helper classes. From margin definitions to our classical <code>.hide</code>. most of them has an <code>!important</code>, to prevent CSS specify issues. But using <code>!impotant</code> isn’t evil? No. The problem is to use it in an unorganized environment, where it’s hard to tell what is been overridden. Many frameworks use them. The concept of a helper class as <code>.hide</code> is that if you use it, it’s because you want that element to be hidden, so <code>.hide</code> should trumps above others.</p>
+
+      <h4 id="inbox">Inbox</h4>
+      <p>A place where you can code without worrying about rules. Is an area where you can code if you are not sure where to place a statement. Later on, you or the person in charge of the maintenance of the architecture would refactor it and place it in a better place.</p> 
+
+    </section> <!-- END Section -->
+
+    
+     <!-- Section --> 
+      <section id="naming-conventions">  
+        <h2>Naming conventions</h2>
+        
+        <h4>Clasess</h4>
+        <p>This is the naming convention for classes. It combine BEM, SMACSS an others ideas. </p>
+
+        <pre>
+          // Naming convention
+          .component-name
+          .component-name--modifier-name
+          .component-name__subcomponent-name
+          .component-name__subcomponent-name--modifier-name </pre>
+
+        <p>Examples</p>
+
+        <pre>
+        &lt;nav class=&quot;primary-nav  primary-nav--hightlight&quot;&gt;<br/>          &lt;ul class=&quot;primary-nav__list&quot;&gt;<br/>            &lt;li class=&quot;primary-nav__item  primary-nav__item--shadow&quot;&gt;<br/>                &lt;button class=&quot;btn  btn--full  btn--large&quot;&gt;&lt;/button&gt;<br/>            &lt;/li&gt;<br/>          &lt;/ul&gt;<br/>        &lt;/nav&gt; </pre>
+
+        <p>Many people find this naming convention ugly at first. If you are unfamiliar with BEM and similar, and you don’t understand what I’m doing, take your time and study it. Meanwhile, read the <a target="blank" href="http://cssguidelin.es/#naming-conventions"> CSS guidelines.</a></p>
+
+        <p>I use BEM naming convention for Sass elements too:</p>
+
+        <pre>
+        // Variables
+        $element-text-color:        value;  
+        $element--primary:          value;  // modyfier     
+        $element--big:              value;  // modyfier    
+
+        // Mixins
+        @mixin btn-style {} </pre>
+
+        <p>More:</p>
+
+        
+        <p>Use a js-prefix for javascript hooks (dont style them in CSS to keep them independient to presentation)</p>
+
+        <pre>
+        &lt;button class=&quot;btn  js-btn&quot; /&gt; </pre>
+
+        <p>Use an is- prefix for classes related to a state. More here (For more about this, I suggest you to get Jonathan Snook great book <a target="blank" href="https://smacss.com/"><cite>SMACSS</cite></a>, about many of the topics explained in ECSS).</p>
+
+        <pre>
+        &lt;div class=&quot;element  is-collapsed  e-is-marked&quot; /&gt;
+
+        .element.is-collapsed { } </pre>
+
+          <p>
+            Use a has-prefix for denotating context situation. More <a target="blank" href="http://mvcss.github.io/styleguide/naming/#context">here</a>
+          </p>
+
+          <p>Use e- prefix for ECSS default elements.</p>
+        </ul>
+
+    </section> <!-- END Section -->
+
+
+
+
+
+
+
+
+    <!-- Section --> 
+    <section id="standars">  
+      <h2>Standars</h2>
+
+      <h4>The way to go</h4>
+
+      <p>Many of the ideas of this section come from the Harry Roberts <a target="blank" href="http://cssguidelin.es/">CSS Guidelines</a>, so I suggest you to read it also. The differences of my implementation with his are minimum (he uses spaces for indentation but I prefer tabs, for example, <a target="blank" href="http://programmers.stackexchange.com/questions/57/tabs-versus-spaces-what-is-the-proper-indentation-character-for-everything-in-e">(one debate about it)</a>).</p>
+
+      <p>Here are some principals that I try to implement (I swear I try as much I can). You don’t have to follow them, but at least is good that you have them in account.</p>
+      
+      <ul>
+        <li><p>Multi-line CSS</p></li>
+        <li><p>Meaningful use of white space</p></li>
+        <li><p>Titling all the files and give meaningful information in descriptions</p></li>
+        <li>
+          <p>I'm separating multiple classes in HTML with two spaces</p>
+          <pre>
+            <code>&lt;div class=&quot;carousel  box&quot;&gt;</code> </pre>
+        </li>
+        <li><p>I'm grouping related classes in the HTML in square brackets ([ and ]) to help readability. Notice that the brackets must be spaced out. More here: <a target="blank" href="http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/"><cite>Grouping related classes in your markup</cite>.</a> 
+          </p> 
+          
+          <pre>
+          &lt;a class=&quot;[ btn btn--large ]  page-head__link&quot;&gt; </pre>
+        </li>
+        <li><p>I’m using a <code>data-ui-component</code> attribute to give semantic name to relevant HTML elements. More <a href="http://csswizardry.com/2014/03/naming-ui-components-in-oocss/" target="blank">here</a>.</p></li>
+        <li><p>I don’t use id to style elements, that way is easy to manage CSS's specificity. More <a target="blank" href="http://cssguidelin.es/#specificity"> here</a></p></li>
+        <li><p>I do use <code>!important</code> for helpers classes, and no, it’s not a bad practice.</p></li>
+        <li> <p>I try to follow as much as possible the <a href="http://csswizardry.com/2012/06/single-direction-margin-declarations/" target="blank">Single-direction Margin Declaration</a>, which means that I try to don’t use margin-top and margin-right in <strong>any</strong> element (hard but convenient).</p></li>
+
+      </ul>
+      
+      <h4>Semantics</h4>
+      <p> The debate about the importance of semantics in front-end development is a big and old one. For me, writing semantics HTML's tags is the correct way to go (I even enjoy when trying to decide what tag to use in a concrete scenario, even if a have to investigate some minutes). So, if the element is a header, use <code>&lt;header&gt;</code> instead of <code>&lt;div&gt;</code></p>
+
+      <p>  But when it’s about classes, I think differently. I <strong>almost</strong> don’t see a real reason to use a semantic class name. It doesn’t affect SEO and screen-readers don’t read them. About helping others to understand our code, in what statics web concern, I would like to cite Harry Roberts on this:</p>
+
+      <blockquote>
+        <p>Using a class name to describe content is redundant because content describes itself.</p>
+      </blockquote>
+
+      <p>I think it’s more useful to style using classes in a way that they become more reusable, even if they are presentational. More about this:</p>
+
+      <ul>
+        <li><a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/" target="blank">About HTML semantics and front-end architecture</a></li>
+        <li><a href="http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/" target="blank">Our (CSS) best practices are killing us.</a></li>
+        <li><a href="http://cssguidelin.es/#naming" target="blank">CSS guidelines - Naming</a></li>
+        <li><a href="http://www.smashingmagazine.com/2011/11/11/our-pointless-pursuit-of-semantic-value/" target="blank">Our Pointless Pursuit Of Semantic Value</a></li>
+      </ul>
+
+       <h4>Fragments of good ideas</h4>
+
+        <p>These are some excerpts from <a target="blank" href="http://csswizardry.com/2012/11/code-smells-in-css/"><cite>Code smells in CSS</cite></a>, a post that I really recommend you to read.</p>
+
+        <blockquote>
+          
+          <h5>About Layout </h5>
+
+          <p>"All components you build should be left totally free of widths; they should always remain fluid and their widths should be governed by a parent/grid system.</p>
+
+          <p>Heights should never be be applied to elements. Heights should only be applied to things which had dimensions before they entered the site (i.e. images and sprites). Never ever set heights on ps, uls, divs, anything. You can often achieve the desired effect with line-height which is far more flexible.</p>
+
+          <p>Grid systems should be thought of as shelves. They contain content but are not content in themselves. You put up your shelves then fill them with your stuff. By setting up our grids separately to our components you can move components around a lot more easily than if they had dimensions applied to them; this makes our front-ends a lot more adaptable and quick to work with.</p>
+          
+          <p>You should never apply any styles to a grid item, they are for layout purposes only. Apply styling to content inside a grid item. Never, under any circumstances, apply box-model properties to a grid item."</p>
+          
+          <h5 id="magicNumbers">Magic numbers and absolutes</h5>
+
+          <p>A magic number is a number which is used because ‘it just works’. These are bad because they rarely work for any real reason and are not usually very futureproof or flexible/forgiving. They tend to fix symptoms and not problems.</p>
+          
+          <p>For example, using .dropdown-nav li:hover ul { top: 37px; } to move a dropdown to the bottom of the nav on hover is bad, as 37px is a magic number. 37px only works here because in this particular scenario the .dropdown-nav happens to be 37px tall.</p>
+          
+          <p>Instead you should use .dropdown-nav li:hover ul { top: 100%; } which means no matter how tall the .dropdown-nav gets, the dropdown will always sit 100% from the top.</p>
+          
+          <p>Every time you hard code a number think twice; if you can avoid it by using keywords or ‘aliases’ (i.e. top: 100% to mean ‘all the way from the top’) or—even better—no measurements at all then you probably should.</p>
+          
+          <p>Every hard-coded measurement you set is a commitment you might not necessarily want to keep.</p>
+
+        </blockquote>
+
+
+    </section> <!-- END Section -->
+
+
+
+
+      <!-- Section --> 
+      <section id="coments">  
+        <h2>Comments</h2>
+
+        <p>I like the idea of having defined comments in order of decreasing importance. This is the standard I like and use.</p>
+
+        <pre>
+        /***********************************************\
+
+           #FIRST LEVEL - For naming
+
+        \***********************************************/
+
+
+        /*----------------------------------------------*\
+            Second level - For naming
+        \*----------------------------------------------*/
+
+
+        /*  Third level - For naming
+        -------------------------------------*/
+
+
+        /* ----- Fourth Level - For naming ----- */
+
+
+        // Fifth level - General purpose
+
+
+
+        /**
+         * High-level - For large comments that document entire module
+         *
+         * 1) Information about the module
+         * 2) More information
+         */ 
+
+
+        /**
+         * Low-level - For on specific declarations
+         *
+         * 1. Information about the declararion
+         * 2. Information about the declararion
+         */
+
+        .page-head--masthead {
+          color: #000;        /* [1] */
+          text-align: center; /* [2] */
+        } </pre>
+
+    </section> <!-- END Section -->   
+
+
+    <!-- Section --> 
+    <section id="your-documentation">  
+      <h2>Your own Documentation</h2>
+
+      <p>There are many <a target="blank" href="http://vinspee.me/style-guide-guide/">useful tools</a> to automatize the process of creating a front-end style guide. It’s in my plans to continue extending ECSS and I will probably make some helper for it. You can use one of these tools or you can edit this documentation so it fits to your needs.</p>
+
+      <p>I strongly recommend that you make a style guide of the projects you work on. I know you might have so much work, but I suggest that when you have some free time, that you or your team take 3 days to study the concepts covered on this doc, specially concepts as OOCSS and BEM. In the same way, use that time to improve also your workflow. Get to know tools as <a target="blank" href="http://emmet.io/">emmet</a>, <a target="blank" href="http://gruntjs.com/">Grunt</a>, <a target="blank" href="http://bower.io/">Bower</a>  and <a target="blank" href="http://livereload.com/">LiveReload</a>. You won’t be making money in those three days, but your productivity and quality of code will improve drastically. I promise.</p>
+
+    </section> <!-- END Section -->  
+
+
+
+
+    <footer class="page-foot  [ e-box  e-box--quiet ]">
+      <div class="container">
+        <div class="copyright">
+          © 2014. Eladio Portela - <a href="http://www.webdesignerbarcelona.com">webritos.com</a> 
+        </div>
+      </div>
+    </footer>
+
+
+     </div> <!-- END container -->
+  </main> <!-- END Main -->
+
+
+
+
+</body>
+</html>

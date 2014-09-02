@@ -1,0 +1,145 @@
+/***********************************************\
+
+   #BOX
+
+\***********************************************/
+
+// The box object simply boxes off content. Credits: inuit css
+ 
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$e-box-padding:                 $e-global-spacing-unit !default;
+$e-box-padding--tiny:           quarter($e-box-padding) !default;
+$e-box-padding--small:          halve($e-box-padding) !default;
+$e-box-padding--large:          double($e-box-padding) !default;
+$e-box-padding--huge:           quadruple($e-box-padding) !default;
+
+$e-box--primary__text-color:    $e-primary-color !default;
+$e-box--quiet__text-color:      $e-quiet-color !default;
+
+$e-enable-box--flush:           false !default;
+$e-enable-box--tiny:            false !default;
+$e-enable-box--small:           false !default;
+$e-enable-box--large:           false !default;
+$e-enable-box--huge:            false !default;
+
+$e-enable-box--primary:         false !default;
+$e-enable-box--quiet:           false !default;
+
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+/**
+ * 1. So we can apply the `.box` class to naturally-inline elements.
+ */
+.e-box,
+%e-box {
+    @extend %clearfix;
+    display: block; /* [1] */
+    margin-bottom: 1.5em;
+    padding: $e-box-padding;
+    text-align: center;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    & > small {
+        line-height: inherit;
+    }
+
+}
+
+
+
+/* ----- Modifiers ----- */
+
+
+@if ($e-enable-box--flush == true) {
+
+    // Flush (i.e. no padding) box     
+    .e-box--flush,
+    %e-box--flush {
+        padding: 0;
+    }
+
+}
+
+@if ($e-enable-box--tiny == true) {
+
+    // Tiny box
+    .e-box--tiny,
+    %e-box--tiny {
+        padding: $e-box-padding--tiny;
+    }
+
+}
+
+@if ($e-enable-box--small == true) {
+
+    // Small box
+    .e-box--small,
+    %e-box--small {
+        padding: $e-box-padding--small;
+    }
+
+}
+
+@if ($e-enable-box--large == true) {
+
+    // Large box
+    .e-box--large,
+    %e-box--large {
+        padding: $e-box-padding--large;
+    }
+
+}
+
+@if ($e-enable-box--huge == true) {
+
+    // Huge box
+    .e-box--huge,
+    %e-box--huge {
+        padding: $e-box-padding--huge;
+    }
+
+}
+
+
+
+@if ($e-enable-box--primary == true) {
+    
+    // Primary box
+    .e-box--primary {
+        background-color: $e-primary-color;
+
+        .e-box__item {
+            color: $e-white-color;
+        }
+    }
+}    
+
+@if ($e-enable-box--quiet == true) {
+    
+    // Quiet box
+    .e-box--quiet {
+        background-color: $e-quiet-color; 
+
+        .e-box__item {
+            color: $black-light-x1;
+        }
+    }
+}
+
+
+/* ----- Subcomponents ----- */    

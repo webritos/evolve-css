@@ -1,0 +1,371 @@
+/***********************************************\
+
+   #SPACING
+
+\***********************************************/
+
+// Credit: inuit CSS
+
+/**
+ * Margin and padding helper classes. Use these to tweak layout on a micro
+ * level.
+ *
+ * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
+ *
+ *  .[negative][type][direction][size] {}
+ *
+ *  E.g.:
+ * 
+ *  .-mt+ will give you a large (+) negative (-) margin (m) top (t).
+ *  .p-- will give you a tiny (--) padding (p).
+ *  .mh++ will give you a huge (++) horizontal (h) margin (m).
+ *  .mb0 will give you no (0) margin (m) bottom (b).
+ *  .pl- will give you a small (-) padding (p) left (l).
+ *
+ *
+ */
+
+ /*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$e-margin:                          $e-global-spacing-unit !default;
+$e-padding:                         $e-global-spacing-unit !default;
+
+$e-margin--tiny:                    e-quarter($e-margin) !default;
+$e-margin--small:                   e-halve($e-margin) !default;
+$e-margin--large:                   e-double($e-margin) !default;
+$e-margin--huge:                    e-quadruple($e-margin) !default;
+
+$e-padding--tiny:                   e-quarter($e-margin) !default;
+$e-padding--small:                  e-halve($e-margin) !default;
+$e-padding--large:                  e-double($e-margin) !default;
+$e-padding--huge:                   e-quadruple($e-margin) !default;
+
+$e-enable-margins:                  false !default;
+$e-enable-margins--tiny:            false !default;
+$e-enable-margins--small:           false !default;
+$e-enable-margins--large:           false !default;
+$e-enable-margins--huge:            false !default;
+
+$e-enable-margins--negative:        false !default;
+$e-enable-margins--negative-tiny:   false !default;
+$e-enable-margins--negative-small:  false !default;
+$e-enable-margins--negative-large:  false !default;
+$e-enable-margins--negative-huge:   false !default;
+
+$e-enable-margins--none:            false !default;
+
+$e-enable-paddings:                 false !default;
+$e-enable-paddings--tiny:           false !default;
+$e-enable-paddings--small:          false !default;
+$e-enable-paddings--large:          false !default;
+$e-enable-paddings--huge:           false !default;
+
+$e-enable-paddings--none:           false !default; 
+
+ 
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+@if ($e-enable-margins == true) {
+
+    /**
+     * Margin helper classes.
+     *
+     * Add margins.
+     */
+
+    .e-m       { margin:           $e-margin !important; }
+    .e-mt      { margin-top:       $e-margin !important; }
+    .e-mr      { margin-right:     $e-margin !important; }
+    .e-mb      { margin-bottom:    $e-margin !important; }
+    .e-ml      { margin-left:      $e-margin !important; }
+    .e-mh      { margin-right:     $e-margin !important; margin-left:      $e-margin !important; }
+    .e-mv      { margin-top:       $e-margin !important; margin-bottom:    $e-margin !important; }
+
+}
+
+
+@if ($e-enable-margins--tiny == true) {
+
+    /**
+     * Add tiny margins.
+     */
+
+    .e-m--     { margin:           $e-margin--tiny !important; }
+    .e-mt--    { margin-top:       $e-margin--tiny !important; }
+    .e-mr--    { margin-right:     $e-margin--tiny !important; }
+    .e-mb--    { margin-bottom:    $e-margin--tiny !important; }
+    .e-ml--    { margin-left:      $e-margin--tiny !important; }
+    .e-mh--    { margin-right:     $e-margin--tiny !important; margin-left:     $e-margin--tiny !important; }
+    .e-mv--    { margin-top:       $e-margin--tiny !important; margin-bottom:   $e-margin--tiny !important; }
+
+}
+
+
+@if ($e-enable-margins--small == true) {
+
+    /**
+     * Add small margins.
+     */
+
+    .e-m-      { margin:           $e-margin--small !important; }
+    .e-mt-     { margin-top:       $e-margin--small !important; }
+    .e-mr-     { margin-right:     $e-margin--small !important; }
+    .e-mb-     { margin-bottom:    $e-margin--small !important; }
+    .e-ml-     { margin-left:      $e-margin--small !important; }
+    .e-mh-     { margin-right:     $e-margin--small !important; margin-left:   $e-margin--small !important; }
+    .e-mv-     { margin-top:       $e-margin--small !important; margin-bottom: $e-margin--small !important; }
+
+}
+
+
+@if ($e-enable-margins--large == true) {
+
+    /**
+     * Add large margins.
+     */
+
+    .e-m\+     { margin:           $e-margin--large !important; }
+    .e-mt\+    { margin-top:       $e-margin--large !important; }
+    .e-mr\+    { margin-right:     $e-margin--large !important; }
+    .e-mb\+    { margin-bottom:    $e-margin--large !important; }
+    .e-ml\+    { margin-left:      $e-margin--large !important; }
+    .e-mh\+    { margin-right:     $e-margin--large !important; margin-left:      $e-margin--large !important; }
+    .e-mv\+    { margin-top:       $e-margin--large !important; margin-bottom:    $e-margin--large !important; }
+
+}
+
+
+@if ($e-enable-margins--huge == true) {
+
+    /**
+     * Add huge margins.
+     */
+
+    .e-m\+\+   { margin:           $e-margin--huge !important; }
+    .e-mt\+\+  { margin-top:       $e-margin--huge !important; }
+    .e-mr\+\+  { margin-right:     $e-margin--huge !important; }
+    .e-mb\+\+  { margin-bottom:    $e-margin--huge !important; }
+    .e-ml\+\+  { margin-left:      $e-margin--huge !important; }
+    .e-mh\+\+  { margin-right:     $e-margin--huge !important; margin-left:   $e-margin--huge !important; }
+    .e-mv\+\+  { margin-top:       $e-margin--huge !important; margin-bottom: $e-margin--huge !important; }
+
+}
+
+
+@if ($e-enable-margins--none == true) {
+
+    /**
+     * Remove margins.
+     */
+
+    .e-m0      { margin:           0 !important; }
+    .e-mt0     { margin-top:       0 !important; }
+    .e-mr0     { margin-right:     0 !important; }
+    .e-mb0     { margin-bottom:    0 !important; }
+    .e-ml0     { margin-left:      0 !important; }
+    .e-mh0     { margin-right:     0 !important; margin-left:      0 !important; }
+    .e-mv0     { margin-top:       0 !important; margin-bottom:    0 !important; }
+
+}
+
+
+@if ($e-enable-margins--negative == true) {
+
+    /**
+     * Negative margins.
+     */
+
+    .e--m      { margin:           -$e-margin !important; }
+    .e--mt     { margin-top:       -$e-margin !important; }
+    .e--mr     { margin-right:     -$e-margin !important; }
+    .e--mb     { margin-bottom:    -$e-margin !important; }
+    .e--ml     { margin-left:      -$e-margin !important; }
+    .e--mh     { margin-right:     -$e-margin !important; margin-left:      -$e-margin !important; }
+    .e--mv     { margin-top:       -$e-margin !important; margin-bottom:    -$e-margin !important; }
+
+}
+
+
+@if ($e-enable-margins--negative-tiny == true) {
+
+    /**
+     * Tiny negative margins.
+     */
+
+    .e--m--    { margin:           -$e-margin--tiny !important; }
+    .e--mt--   { margin-top:       -$e-margin--tiny !important; }
+    .e--mr--   { margin-right:     -$e-margin--tiny !important; }
+    .e--mb--   { margin-bottom:    -$e-margin--tiny !important; }
+    .e--ml--   { margin-left:      -$e-margin--tiny !important; }
+    .e--mh--   { margin-right:     -$e-margin--tiny !important; margin-left:     -$e-margin--tiny !important; }
+    .e--mv--   { margin-top:       -$e-margin--tiny !important; margin-bottom:   -$e-margin--tiny !important; }
+
+}
+
+
+@if ($e-enable-margins--negative-small == true) {
+
+    /**
+     * Small negative margins.
+     */
+
+    .e--m-     { margin:           -$e-margin--small !important; }
+    .e--mt-    { margin-top:       -$e-margin--small !important; }
+    .e--mr-    { margin-right:     -$e-margin--small !important; }
+    .e--mb-    { margin-bottom:    -$e-margin--small !important; }
+    .e--ml-    { margin-left:      -$e-margin--small !important; }
+    .e--mh-    { margin-right:     -$e-margin--small !important; margin-left:   -$e-margin--small !important; }
+    .e--mv-    { margin-top:       -$e-margin--small !important; margin-bottom: -$e-margin--small !important; }
+
+}
+
+
+@if ($e-enable-margins--negative-large == true) {
+
+    /**
+     * Large negative margins.
+     */
+
+    .e--m\+    { margin:           -$e-margin--large !important; }
+    .e--mt\+   { margin-top:       -$e-margin--large !important; }
+    .e--mr\+   { margin-right:     -$e-margin--large !important; }
+    .e--mb\+   { margin-bottom:    -$e-margin--large !important; }
+    .e--ml\+   { margin-left:      -$e-margin--large !important; }
+    .e--mh\+   { margin-right:     -$e-margin--large !important; margin-left:      -$e-margin--large !important; }
+    .e--mv\+   { margin-top:       -$e-margin--large !important; margin-bottom:    -$e-margin--large !important; }
+
+}
+
+
+@if ($e-enable-margins--negative-huge == true) {
+
+    /**
+     * Huge negative margins.
+     */
+
+    .e--m\+\+  { margin:           -$e-margin--huge !important; }
+    .e--mt\+\+ { margin-top:       -$e-margin--huge !important; }
+    .e--mr\+\+ { margin-right:     -$e-margin--huge !important; }
+    .e--mb\+\+ { margin-bottom:    -$e-margin--huge !important; }
+    .e--ml\+\+ { margin-left:      -$e-margin--huge !important; }
+    .e--mh\+\+ { margin-right:     -$e-margin--huge !important; margin-left:   -$e-margin--huge !important; }
+    .e--mv\+\+ { margin-top:       -$e-margin--huge !important; margin-bottom: -$e-margin--huge !important; }
+
+}
+
+
+
+
+
+@if ($e-enable-paddings == true) {
+
+    /**
+     * Padding helper classes.
+     *
+     * Add paddings.
+     */
+
+    .e-p       { padding:          $e-padding !important; }
+    .e-pt      { padding-top:      $e-padding !important; }
+    .e-pr      { padding-right:    $e-padding !important; }
+    .e-pb      { padding-bottom:   $e-padding !important; }
+    .e-pl      { padding-left:     $e-padding !important; }
+    .e-ph      { padding-right:    $e-padding !important; padding-left:    $e-padding !important; }
+    .e-pv      { padding-top:      $e-padding !important; padding-bottom:  $e-padding !important; }
+
+}
+
+
+@if ($e-enable-paddings--tiny == true) {
+
+    /**
+     * Add tiny paddings.
+     */
+
+    .e-p--     { padding:           $e-padding--tiny !important; }
+    .e-pt--    { padding-top:       $e-padding--tiny !important; }
+    .e-pr--    { padding-right:     $e-padding--tiny !important; }
+    .e-pb--    { padding-bottom:    $e-padding--tiny !important; }
+    .e-pl--    { padding-left:      $e-padding--tiny !important; }
+    .e-ph--    { padding-right:     $e-padding--tiny !important; padding-left:      $e-padding--tiny !important; }
+    .e-pv--    { padding-top:       $e-padding--tiny !important; padding-bottom:    $e-padding--tiny !important; }
+
+}
+
+
+@if ($e-enable-paddings--small == true) {
+
+    /**
+     * Add small paddings.
+     */
+
+    .e-p-      { padding:           $e-padding--small !important; }
+    .e-pt-     { padding-top:       $e-padding--small !important; }
+    .e-pr-     { padding-right:     $e-padding--small !important; }
+    .e-pb-     { padding-bottom:    $e-padding--small !important; }
+    .e-pl-     { padding-left:      $e-padding--small !important; }
+    .e-ph-     { padding-right:     $e-padding--small !important; padding-left:    $e-padding--small !important; }
+    .e-pv-     { padding-top:       $e-padding--small !important; padding-bottom:  $e-padding--small !important; }
+
+}
+
+
+@if ($e-enable-paddings--large == true) {
+
+    /**
+     * Add large paddings.
+     */
+
+    .e-p\+     { padding:           $e-padding--large !important; }
+    .e-pt\+    { padding-top:       $e-padding--large !important; }
+    .e-pr\+    { padding-right:     $e-padding--large !important; }
+    .e-pb\+    { padding-bottom:    $e-padding--large !important; }
+    .e-pl\+    { padding-left:      $e-padding--large !important; }
+    .e-ph\+    { padding-right:     $e-padding--large !important; padding-left:   $e-padding--large !important; }
+    .e-pv\+    { padding-top:       $e-padding--large !important; padding-bottom: $e-padding--large !important; }
+
+}
+
+
+@if ($e-enable-paddings--huge == true) {
+
+    /**
+     * Add huge paddings.
+     */
+
+    .e-p\+\+   { padding:           $e-padding--huge !important; }
+    .e-pt\+\+  { padding-top:       $e-padding--huge !important; }
+    .e-pr\+\+  { padding-right:     $e-padding--huge !important; }
+    .e-pb\+\+  { padding-bottom:    $e-padding--huge !important; }
+    .e-pl\+\+  { padding-left:      $e-padding--huge !important; }
+    .e-ph\+\+  { padding-right:     $e-padding--huge !important; padding-left:    $e-padding--huge !important; }
+    .e-pv\+\+  { padding-top:       $e-padding--huge !important; padding-bottom:  $e-padding--huge !important; }
+
+}
+
+
+@if ($e-enable-paddings--none == true) {
+
+    /**
+     * Remove paddings.
+     */
+
+    .e-p0      { padding:          0 !important; }
+    .e-pt0     { padding-top:      0 !important; }
+    .e-pr0     { padding-right:    0 !important; }
+    .e-pb0     { padding-bottom:   0 !important; }
+    .e-pl0     { padding-left:     0 !important; }
+    .e-ph0     { padding-right:    0 !important; padding-left:     0 !important; }
+    .e-pv0     { padding-top:      0 !important; padding-bottom:   0 !important; }
+
+}

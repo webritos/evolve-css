@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #GENERAL
+\*------------------------------------*/
+
+
+
+
+// Center-align a block level element
+.e-center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.e-pull-left {
+  float: left !important;
+}
+.e-pull-right {
+  float: right !important;
+}
+
+.e-text-center {
+  text-align: center !important;
+}
+.e-text-left {
+  text-align: left !important;
+}
+.e-text-right {
+  text-align: right !important;
+}
+

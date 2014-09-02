@@ -1,0 +1,184 @@
+/***********************************************\
+
+   #EVOLVE CSS TYPE
+
+\***********************************************/
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$e-heading-size-1:      36px !default;
+$e-heading-size-2:      30px !default;
+$e-heading-size-3:      24px !default;
+$e-heading-size-4:      20px !default;
+$e-heading-size-5:      16px !default;
+$e-heading-size-6:      14px !default;
+
+$e-heading-text-color:              $black-light-x1;
+$e-heading-text-color--sub:         $black-light-x1;
+$e-code-text-color--block:          $e-white-color !default;
+$e-code-bg-color--block:            #444 !default;
+$e-code-text-color--inline:         $black-light-x1 !default;
+$e-code-bg-color--inline:           $e-quiet-color !default;
+$e-blockquote-bg-color:             $e-quiet-color !default; 
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+ /*  Headings
+-------------------------------------*/
+
+h1, .h1  {
+    @include e-font-size($e-heading-size-1);
+}
+
+h2, .h2 {
+    @include e-font-size($e-heading-size-2);
+}
+
+h3, .h3 {
+    @include e-font-size($e-heading-size-3);
+}
+
+h4, .h4 {
+    @include e-font-size($e-heading-size-4);
+}
+
+h5, .h5 {
+    @include e-font-size($e-heading-size-5);
+}
+ 
+h6,.h6 {
+    @include e-font-size($e-heading-size-6);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $e-heading-text-color;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+    
+// A generic heading style which can be applied to any headings. 
+.heading {
+    @include e-font-size(22px);
+}
+
+.heading-sub {
+    @include e-font-size(16px);
+    margin-bottom: 0;
+    color: $e-heading-text-color--sub;
+}
+
+
+
+ /*  Emboldened elements.
+-------------------------------------*/
+
+a,
+strong, b,
+dt {
+    font-weight: bold;
+}
+
+
+
+ /*  Code-like elements.
+-------------------------------------*/
+
+code, kbd, samp {
+    color: $e-code-text-color--inline;
+    background-color: $e-code-bg-color--inline;
+    font-family: Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+pre {
+    white-space: pre;
+    word-wrap: normal;
+    overflow: auto;
+    padding: $e-global-spacing-unit;
+    background-color: $e-code-bg-color--block;
+    font-family: Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 0.85rem;
+    color: $e-code-text-color--block;
+
+    &,
+    code, kbd, samp {
+        color: $e-code-text-color--block;
+        background-color: $e-code-bg-color--block;
+    }
+}
+
+
+ /*  Quotes
+-------------------------------------*/
+
+// Inline quotes.
+q {
+    font-style: italic;
+    // quotes: "‘" "’" "“" "”";
+
+    // &:before {
+    //     content: open-quote;
+    // }
+
+    // &:after {
+    //     content: close-quote;
+    // }
+
+}
+
+
+/**
+ * Block quotes.
+ *
+ * 1. Hang opening punctuation.
+ */
+blockquote {
+    @include e-rem-fallback(padding, 25);
+    text-indent: -0.41em; /* [1] */
+    quotes: "“" "”";
+    background-color: $e-blockquote-bg-color;
+
+    p {
+
+        &:before {
+            content: open-quote;
+        }
+
+        &:after {
+            content: no-close-quote;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+
+            &:after {
+                content: close-quote;
+            }
+
+        }
+
+    }
+
+    q {
+        quotes: "‘" "’";
+
+        &:before {
+            content: open-quote;
+        }
+
+        &:after {
+            content: close-quote;
+        }
+
+    }
+
+}

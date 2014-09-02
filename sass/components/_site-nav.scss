@@ -1,0 +1,82 @@
+/***********************************************\
+
+   #SITE-NAV
+
+\***********************************************/
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+/*  Default
+-------------------------------------*/
+
+/* ----- Base ----- */
+
+.site-nav {
+    @include e-rem-fallback(margin-left, $e-global-spacing-unit);
+}
+
+
+/* ----- Modifiers ----- */
+
+
+/* ----- Subcomponents ----- */
+
+.site-nav__list {
+    @extend %e-list-inline;
+
+     @include e-media-query(lap-and-up) {
+        > li {
+            display: block;
+        }           
+    }
+}
+
+.site-nav__item {
+    @include e-rem-fallback(padding-left, 5px);    
+    @include e-rem-fallback(padding-right, 5px);
+    font-size: 0.85rem;    
+    
+    @include e-media-query(lap-and-up) {
+        @include e-rem-fallback(padding, 7px 0);       
+    }
+}
+
+.site-nav__link {
+    text-transform: uppercase;
+    
+    &.active {
+        border-bottom: 2px solid $e-primary-color;
+
+        &:hover {
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+}
+
+
+.site-nav__sub-list {
+    @extend %e-list-inline;
+    @include e-rem-fallback(padding-top, 5px);
+
+    @include e-media-query(lap-and-up) {
+        > li {
+            display: block;
+        }           
+    }
+}
+
+.site-nav__sub-item {
+    @include e-rem-fallback(padding, 3px 10px);
+}

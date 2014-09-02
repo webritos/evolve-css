@@ -1,0 +1,42 @@
+// *********************************************
+//
+//   #LINKS
+//
+// *********************************************
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+// Predefine the variables below in order to alter and enable specific features.
+$e-link-text-color:              $e-primary-color !default;
+$e-link-text-color--quiet:       $e-quiet-color !default;
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+a {
+    text-decoration: none;
+    color: $e-link-text-color;
+
+    @include e-attention() {
+        text-decoration: underline;
+    }
+
+}
+
+.link-quiet {
+   color: $e-link-text-color--quiet;
+   text-decoration: underline;
+
+   @include e-attention() {
+       color: $e-link-text-color--quiet;
+   }
+
+}
+

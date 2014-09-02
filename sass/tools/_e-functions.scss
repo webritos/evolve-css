@@ -1,0 +1,84 @@
+/***********************************************\
+
+   #EVOLVE CSS FUNCTIONS
+
+\***********************************************/
+
+// Credit: Foundation, inuit CSS
+
+
+// Maths helpers.
+//
+// Halve and double numbers, returning rounded integers. E.g.:
+//
+// .foo {
+//     padding: e-halve(3.2px);
+// }
+//
+@function e-quarter($value) {
+    @return round($value / 4);
+}
+
+@function e-halve($value) {
+    @return round($value / 2);
+}
+
+@function e-double($value) {
+    @return round($value * 2);
+}
+
+@function e-quadruple($value) {
+    @return round($value * 4);
+}
+
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function e-strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// CONVERT TO REM
+@function e-convert-to-rem($value, $base-value: $rem-base)  {
+  $value: e-strip-unit($value) / e-strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+
+
+
+// REM CALC 
+
+// Allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+// 
+//   erem-calc(10 20 30px 40);
+// 
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+// 
+//   erem-calc((10, 20, 30, 40px));
+// 
+// Optionally call with a different base (eg: 8px) to calculate rem.
+// 
+//   erem-calc(16px 32px 48px, 8px);
+// 
+// If you require to comma separate your list
+// 
+//   erem-calc((16px, 32px, 48), 8px);
+
+@function e-rem-calc($values, $base-value: $e-base-font-size) {
+  $max: length($values);
+
+  @if $max == 1 { @return e-convert-to-rem(nth($values, 1), $base-value); }
+
+  $rem-values: ();
+  @for $i from 1 through $max {
+    $rem-values: append($rem-values, e-convert-to-rem(nth($values, $i), $base-value));
+  }
+
+  @return $rem-values;
+}
+
+
+

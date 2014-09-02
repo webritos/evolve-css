@@ -1,0 +1,56 @@
+/***********************************************\
+
+   #SIDEBAR
+
+\***********************************************/
+
+/*----------------------------------------------*\
+    Variables
+\*----------------------------------------------*/
+
+$sidebar-width: 17rem;
+
+
+/*----------------------------------------------*\
+    Mixins
+\*----------------------------------------------*/
+
+/*----------------------------------------------*\
+    Export
+\*----------------------------------------------*/
+
+
+/*  Default
+-------------------------------------*/
+
+/* ----- Base ----- */
+
+.sidebar {
+    @include e-rem-fallback(padding-top, 20px);
+    @include e-rem-fallback(padding-left, 16px);
+    @include e-rem-fallback(padding-right, 16px);
+
+    @include e-media-query(lap-and-up) {
+        position: fixed;
+        width: $sidebar-width;
+        
+    }
+}    
+
+/* ----- Modifiers ----- */
+
+// not used
+.sidebar--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+/* ----- Subcomponents ----- */
+
+.sidebar__header {
+    @include e-rem-fallback(padding-top, 20px);
+    @include e-rem-fallback(margin-bottom, 20px);
+    text-align: center;
+}
