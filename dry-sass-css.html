@@ -85,7 +85,7 @@
 
       <p>And besides of that, one of the characteristic of front-end frameworks is that they bring huge CSS file to lets us use their functionalities. So if we are using and/or creating a framework, CSS files can get really big easily.</p>
 
-      <p>Front-end frameworks as Bootstrap and Foundation are designed in a really nice modular way, where if you don’t want to include in the compiled CSS something, you can do it in a really easy way, like removing the import of that module (ECSS works in the same way).</p>
+      <p>Front-end frameworks as Bootstrap and Foundation are designed in a really nice modular way, where if you don’t want to include something in the compiled CSS, you can do it in a really easy way, like removing the import of that module (ECSS works in the same way).</p>
 
       <pre>
       /**
@@ -95,7 +95,7 @@
       @import "elements/other-element"; </pre>
         
       <h4>Foundation arproach</h4>
-      <p>One method that Foundation uses to reduce the CSS bloating if putting conditional inside of their button style mixin.</p>
+      <p>One method that Foundation uses to reduce the CSS bloating is putting conditional inside of their button style mixin.</p>
 
       <pre>
       @mixin button-style($bg:$button-bg-color, $radius:false, $disabled:false, $bg-hover:null, $border-color:null) {
